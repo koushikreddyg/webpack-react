@@ -1,0 +1,10 @@
+[
+  {
+    "id": "app.title",
+    "defaultMessage": "Koushik"
+  },
+  {
+    "id": "app.buttonName",
+    "defaultMessage": "click me!"
+  }
+]
