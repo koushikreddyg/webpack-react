@@ -15,12 +15,12 @@
     "test": "cross-env NODE_ENV=test jest --config=jest.config.json",
     "preinstall": "node ./internals/preinstall.js",
     "test:watch": "npm run test -- --watch",
-    "push": "concurrently \"npm run lint\" \"npm run prettier\" \"npm run test\""
+    "push": "concurrently \"npm run lint\" \"npm run test\""
   },
   "husky": {
     "hooks": {
       "pre-push": "npm run push",
-      "pre-commit": "npm test"
+      "pre-commit": "npm run push"
     }
   },
   "author": "",
