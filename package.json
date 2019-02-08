@@ -22,7 +22,7 @@
       "pre-commit": "npm run push"
     }
   },
-  "author": "",
+  "author": "Koushik Reddy Gunapati",
   "license": "ISC",
   "dependencies": {
     "@babel/core": "^7.2.2",
