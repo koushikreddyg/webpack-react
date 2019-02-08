@@ -6,7 +6,6 @@
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack -p",
     "dev": "cross-env NODE_ENV=development webpack-dev-server",
-    "live": "live-server public",
     "lint": "eslint --fix src/**/*.js",
     "prettier": "prettier --fix src/**/*.js",
     "extract-intl": "node ./internals/translations.js",
