@@ -15,12 +15,12 @@
     "test": "cross-env NODE_ENV=test jest --config=jest.config.json",
     "preinstall": "node ./internals/preinstall.js",
     "test:watch": "npm run test -- --watch",
-    "push": ""
+    "push": "concurrently 'npm run prettier''npm run lint'  'npm run test'"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm test",
-      "pre-push": "npm test"
+      "pre-commit": "npm run push",
+      "pre-push": "npm run push"
     }
   },
   "author": "",
@@ -33,6 +33,7 @@
     "@babel/preset-react": "^7.0.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.1.0",
+    "concurrently": "^4.1.0",
     "cross-env": "^5.2.0",
     "css-loader": "^2.1.0",
     "dotenv": "^6.2.0",
