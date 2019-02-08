@@ -9,7 +9,6 @@ import messagesEn from "./translations/en.json";
 import messagesEs from "./translations/es.json";
 import localMessage from "./messages";
 
-
 import "./Ap.scss";
 import "./App.css";
 import Button from "./Button";

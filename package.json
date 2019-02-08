@@ -7,15 +7,15 @@
     "build": "cross-env NODE_ENV=production webpack -p",
     "dev": "cross-env NODE_ENV=development webpack-dev-server",
     "live": "live-server public",
-    "lint": "eslint src/**/*.js",
-    "prettier": "prettier --fix src/**/*.js",
+    "lint": "eslint --fix src/**/*.js",
+    "prettier": "prettier src/**/*.js",
     "extract-intl": "node ./internals/translations.js",
     "serve": "nodemon server/index.js",
     "test:coverage": "jest --coverage",
     "test": "cross-env NODE_ENV=test jest --config=jest.config.json",
     "preinstall": "node ./internals/preinstall.js",
     "test:watch": "npm run test -- --watch",
-    "push": "concurrently 'npm run prettier' 'npm run lint' 'npm run test'"
+    "push": "concurrently \"npm run lint\" \"npm run prettier\" \"npm run test\""
   },
   "husky": {
     "hooks": {
