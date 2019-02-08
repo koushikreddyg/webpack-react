@@ -9,6 +9,7 @@ import messagesEn from "./translations/en.json";
 import messagesEs from "./translations/es.json";
 import localMessage from "./messages";
 
+
 import "./Ap.scss";
 import "./App.css";
 import Button from "./Button";
@@ -27,8 +28,8 @@ class App extends React.Component {
   };
   render() {
     const { count } = this.state;
-    const language = "es";
-
+    const language = "en";
+    console.log("name is ", process.env.NODE_ENV);
     return (
       <IntlProvider locale={language} messages={messages[language]}>
         <div className="background textSize">
