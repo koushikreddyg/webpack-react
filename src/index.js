@@ -26,9 +26,9 @@ class App extends React.Component {
 
   componentDidMount() {
     sendRequest({
-      url: "https://jsonplaceholder.typicode.com/todos",
-      method: "GET",
-      mapper: "TODO_MAPPER"
+      url: "/getPosts",
+      method: "GET"
+
     })
       .then(response => console.log(response))
       .catch(response => console.log(response));

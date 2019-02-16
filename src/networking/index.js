@@ -7,7 +7,7 @@ import {
 export const sendRequest = ({ url, method, data, responseType, mapper }) =>
   axios({
     method,
-    url,
+    url: `${process.env.API_HOST}${url}`,
     data,
     responseType
   })
