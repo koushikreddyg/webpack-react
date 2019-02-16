@@ -12,12 +12,12 @@ module.exports = () => {
     dotEnv.config({ path: ".env.dev" });
   } else if (NODE_ENV === "production") {
     dotEnv.config({ path: ".env.prod" });
-  } 
+  }
   const isProd = NODE_ENV === "production";
 
   return {
     mode: isProd ? "production" : "development",
-    entry: reactPath,
+    entry: ["@babel/polyfill", reactPath],
     output: {
       filename: path.join("js", "index.js"),
       path: rootPath

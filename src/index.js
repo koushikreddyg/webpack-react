@@ -8,6 +8,7 @@ import messagesDe from "./translations/de.json";
 import messagesEn from "./translations/en.json";
 import messagesEs from "./translations/es.json";
 import localMessage from "./messages";
+import { sendRequest } from "./networking";
 
 import "./Ap.scss";
 import "./App.css";
@@ -22,13 +23,23 @@ const messages = {
 
 class App extends React.Component {
   state = { count: 0 };
+
+  componentDidMount() {
+    sendRequest({
+      url: "https://jsonplaceholder.typicode.com/todos",
+      method: "GET",
+      mapper: "TODO_MAPPER"
+    })
+      .then(response => console.log(response))
+      .catch(response => console.log(response));
+  }
+
   increase = () => {
     this.setState(({ count }) => ({ count: count + 1 }));
   };
   render() {
     const { count } = this.state;
     const language = "en";
-    console.log("name is ", process.env.NODE_ENV);
     return (
       <IntlProvider locale={language} messages={messages[language]}>
         <div className="background textSize">

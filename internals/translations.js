@@ -13,8 +13,6 @@ const FILES_TO_PARSE = path.join(__dirname, "..", "src", "**", "!(*.test).js");
 
 const finalOutput = { en: {}, es: {}, de: {} };
 
-
-
 const readFile = inputUrl =>
   new Promise((resolve, reject) => {
     fs.readFile(inputUrl, "utf8", (err, data) => {
@@ -46,8 +44,6 @@ const glob = files =>
   );
 
 const getLangData = async filename => {
-  let enJS = {};
-  let rest = {};
   const code = await readFile(filename);
 
   const output = await transform(code, {
