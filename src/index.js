@@ -26,9 +26,9 @@ class App extends React.Component {
 
   componentDidMount() {
     sendRequest({
-      url: "/getPosts",
-      method: "GET"
-
+      url: "/updatePost/kroos",
+      method: "PUT",
+      data: { task: "kroos" }
     })
       .then(response => console.log(response))
       .catch(response => console.log(response));

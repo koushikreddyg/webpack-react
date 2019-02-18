@@ -1,12 +1,14 @@
 const express = require("express");
+const bodyParser = require("body-parser");
 const { devMiddleware } = require("../middlewares/devMiddleware");
 
 const app = express();
 
 app.listen("2000");
 
-app.use(devMiddleware);
+app.use(devMiddleware, bodyParser.json());
 
-app.get("/getPosts", (req, res) => {
-  res.status(202).send({ name: "Koushik" });
-});
+module.exports = { app };
+
+require("./todoApi");
+require("./loginApi");
