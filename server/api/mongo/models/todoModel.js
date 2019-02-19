@@ -1,5 +1,10 @@
 const { mongoose } = require("../mongoose");
 
-const TodoModel = mongoose.model("todo", new mongoose.Schema({ task: String, authToken: String }));
+const TodoModelSchema = new mongoose.Schema({
+  task: String,
+  authToken: String
+});
 
-module.exports = { TodoModel };
+const TodoModel = mongoose.model("todo", TodoModelSchema);
+
+module.exports = { TodoModel, TodoModelSchema };

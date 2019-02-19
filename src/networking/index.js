@@ -4,12 +4,13 @@ import {
   failureResponseHandler
 } from "./responseHandler";
 
-export const sendRequest = ({ url, method, data, responseType, mapper }) =>
+export const sendRequest = ({ url, method, data, responseType, mapper, headers }) =>
   axios({
     method,
     url: `${process.env.API_HOST}${url}`,
     data,
-    responseType
+    responseType,
+    headers
   })
     .then(response =>
       successResponseHandler({ response, mapper: `${mapper}-${method}` })

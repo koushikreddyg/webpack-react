@@ -1,35 +1,30 @@
 const { app } = require("../index");
-const { ObjectID } = require("mongodb");
-const { TodoModel } = require("../mongo/models/todoModel");
+const { LoginModel } = require("../mongo/models/loginModel");
 
 app.get("/getPosts", (req, res) => {
-  TodoModel.find({})
-    .then(response => res.status(202).send(response))
+  LoginModel.findOne({ authToken: req.headers.authtoken })
+    .then(response => res.status(202).send(response.tasks))
     .catch(response => res.status(401).send(response));
 });
 
-app.post("/addPost", (req, res) => {
-  const newTodo = new TodoModel({ ...req.body, authToken: new ObjectID() });
-  newTodo
-    .save()
-    .then(response => res.send(response))
-    .catch(response => res.status(401).send(response));
-});
-
-app.put("/updatePost/:id", (req, res) => {
-  const oldPost = req.params.id;
-
-  TodoModel.findOneAndUpdate(
-    { task: oldPost },
-    { ...req.body, authToken: new ObjectID() }
+app.put("/addPost", (req, res) => {
+  LoginModel.findOneAndUpdate(
+    { authToken: req.headers.authtoken },
+    {
+      $push: { tasks: req.body }
+    },
+    { new: true }
   )
-    .then(response => res.send(response))
+    .then(response => res.send(response.tasks))
     .catch(response => res.status(401).send(response));
 });
 
-app.delete("/deletePost/:id", (req, res) => {
-  const oldPost = req.params.id;
-  TodoModel.findOneAndDelete({ task: oldPost })
-    .then(response => res.send(response))
+app.delete("/deletePost", (req, res) => {
+  LoginModel.findOneAndUpdate(
+    { authToken: req.headers.authtoken },
+    { $pull: { tasks: req.body } },
+    { new: true }
+  )
+    .then(response => res.send(response.tasks))
     .catch(response => res.status(401).send(response));
 });

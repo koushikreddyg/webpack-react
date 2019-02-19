@@ -1,12 +1,14 @@
 const { mongoose } = require("../mongoose");
+const { TodoModelSchema } = require("../models/todoModel");
 
 const LoginModel = mongoose.model(
   "login",
   new mongoose.Schema({
-    login: String,
+    email: String,
     password: String,
     authToken: String,
-    isLogged: Boolean
+    isLogged: Boolean,
+    tasks: [TodoModelSchema]
   })
 );
 
