@@ -1,7 +1,7 @@
 const { app } = require("../index");
 const bcrypt = require("bcrypt");
 const { ObjectID } = require("mongodb");
-const { LoginModel } = require("../mongo/models/loginModel");
+const { LoginModel } = require("../../mongoose/models/loginModel");
 const jwt = require("jsonwebtoken");
 
 app.post("/register", async (req, res) => {

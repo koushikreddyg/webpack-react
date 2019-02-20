@@ -1,5 +1,5 @@
 const { app } = require("../index");
-const { LoginModel } = require("../mongo/models/loginModel");
+const { LoginModel } = require("../../mongoose/models/loginModel");
 
 app.get("/getPosts", (req, res) => {
   LoginModel.findOne({ authToken: req.headers.authtoken })

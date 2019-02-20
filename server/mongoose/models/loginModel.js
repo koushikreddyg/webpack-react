@@ -1,4 +1,4 @@
-const { mongoose } = require("../mongoose");
+const { mongoose } = require("../");
 const { TodoModelSchema } = require("../models/todoModel");
 
 const LoginModel = mongoose.model(

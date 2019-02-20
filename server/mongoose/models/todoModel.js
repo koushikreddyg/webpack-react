@@ -1,4 +1,4 @@
-const { mongoose } = require("../mongoose");
+const { mongoose } = require("../");
 
 const TodoModelSchema = new mongoose.Schema({
   task: String,
