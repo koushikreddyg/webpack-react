@@ -12,5 +12,5 @@ app.listen(PORT);
 app.use(express.static(assetsPath));
 
 app.get("*", (req, res) => {
-  res.sendFile(assetsPath, "index.html");
+  res.sendFile(path.join(assetsPath, "index.html"));
 });

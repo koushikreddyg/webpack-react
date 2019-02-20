@@ -1,15 +1,9 @@
 // const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 
-bcrypt.hash("myPlaintextPassword", 10, (err, hash) => {
-  if (err) {
-    return console.log(err);
-  }
-  bcrypt.compare("myPlaintextPassword1", hash, (err, res) => {
-    if (err) {
-      return console.log(err);
-    }
-    console.log(res);
+bcrypt.hash("myPlaintextPassword", 10).then(hash => {
+  bcrypt.compare("myPlaintextPassword", hash).then(response => {
+    console.log(response);
   });
 });
 

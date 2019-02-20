@@ -16,6 +16,9 @@ module.exports = () => {
   const isProd = NODE_ENV === "production";
 
   return {
+    performance: {
+      hints: false
+    },
     mode: isProd ? "production" : "development",
     entry: ["@babel/polyfill", reactPath],
     output: {
@@ -42,6 +45,30 @@ module.exports = () => {
             },
             "css-loader",
             "sass-loader"
+          ]
+        },
+        {
+          test: /\.(png|svg|jpg|gif)$/,
+          use: [
+            {
+              loader: "file-loader",
+              options: {
+                limit: 8000,
+                name: "assets/images/[hash]-[name].[ext]"
+              }
+            }
+          ]
+        },
+        {
+          test: /\.(pdf)$/,
+          use: [
+            {
+              loader: "file-loader",
+              options: {
+                limit: 8000,
+                name: "assets/pdfs/[hash]-[name].[ext]"
+              }
+            }
           ]
         }
       ]
