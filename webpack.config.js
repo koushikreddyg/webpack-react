@@ -86,7 +86,8 @@ module.exports = () => {
     devServer: {
       contentBase: rootPath,
       port: 5000,
-      open: "Chrome"
+      open: "Chrome",
+      historyApiFallback: true
     },
     devtool: isProd ? "cheap-source-map" : "cheap-eval-source-map"
   };

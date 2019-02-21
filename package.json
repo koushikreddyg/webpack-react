@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack -p",
-    "dev": "concurrently \"cross-env NODE_ENV=development webpack-dev-server\" \"nodemon server/api/index.js\"",
+    "dev": "concurrently \"cross-env NODE_ENV=development webpack-dev-server --hot --inline\" \"nodemon server/api/index.js\"",
     "lint": "eslint --fix src/**/*.js",
     "prettier": "prettier --fix src/**/*.js",
     "extract-intl": "node ./internals/translations.js",
@@ -17,6 +17,7 @@
     "push": "concurrently \"npm run lint\" \"npm run test\"",
     "dev:api": "nodemon server/api/index.js",
     "playground": "nodemon server/playground/index.js"
+    
   },
   "husky": {
     "hooks": {
@@ -68,6 +69,7 @@
     "raf": "^3.4.1",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
+    "react-helmet": "^5.2.0",
     "react-intl": "^2.8.0",
     "react-router-dom": "^4.3.1",
     "react-test-renderer": "^16.8.1",
