@@ -16,8 +16,9 @@
     "test:watch": "npm run test -- --watch",
     "push": "concurrently \"npm run lint\" \"npm run test\"",
     "dev:api": "nodemon server/api/index.js",
-    "playground": "nodemon server/playground/index.js"
-    
+    "playground": "nodemon server/playground/index.js",
+    "ssr:build": "cross-env NODE_ENV=production webpack --progress",
+    "ssr:server": "nodemon index.js"
   },
   "husky": {
     "hooks": {
@@ -35,6 +36,7 @@
     "@babel/polyfill": "^7.2.5",
     "@babel/preset-env": "^7.3.1",
     "@babel/preset-react": "^7.0.0",
+    "@babel/register": "^7.0.0",
     "@loadable/babel-plugin": "^5.6.0",
     "@loadable/component": "^5.6.0",
     "@loadable/server": "^5.6.0",
@@ -71,8 +73,12 @@
     "react-dom": "^16.7.0",
     "react-helmet": "^5.2.0",
     "react-intl": "^2.8.0",
+    "react-redux": "^6.0.1",
+    "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
     "react-test-renderer": "^16.8.1",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "webpack": "^4.29.0",

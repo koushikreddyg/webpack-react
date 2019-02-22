@@ -25,6 +25,9 @@ module.exports = () => {
       filename: path.join("js", "index.js"),
       path: rootPath
     },
+    resolve: {
+      modules: [path.resolve("./src"), "node_modules"]
+    },
     module: {
       rules: [
         {

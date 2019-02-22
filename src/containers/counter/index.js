@@ -11,6 +11,7 @@ import localMessage from "./messages";
 import "../../styles/Ap.scss";
 import "../../styles/App.css";
 import Button from "../../components/Button";
+import { connect } from "react-redux";
 
 addLocaleData([...localeEn, ...localeDe, ...localeEs]);
 const messages = {
@@ -28,12 +29,14 @@ class App extends React.Component {
   };
   render() {
     const { count } = this.state;
+    const { name } = this.props;
     const language = "en";
     return (
       <IntlProvider locale={language} messages={messages[language]}>
         <div className="background textSize">
           {<FormattedMessage {...localMessage.title} />}
           <p>{count}</p>
+          <p>{name}</p>
           <Button onClick={this.increase}>
             <FormattedMessage {...localMessage.buttonName} />
           </Button>
@@ -44,7 +47,10 @@ class App extends React.Component {
 }
 
 App.propTypes = {
-  history: PropTypes.any.isRequired
+  history: PropTypes.any.isRequired,
+  name: PropTypes.string.isRequired
 };
 
-export default App;
+export default connect(state => ({
+  name: state.name
+}))(App);

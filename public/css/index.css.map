@@ -1,1 +1,1 @@
-{"version":3,"file":"css/index.css","sources":["webpack:///./src/styles/Ap.scss","webpack:///./src/styles/App.css"],"sourcesContent":[".background{color:red;font-size:20px}\n",".textSize{font-size:40px}\n"],"mappings":"AAAA;;ACAA;;","sourceRoot":""}
+{"version":3,"file":"css/index.css","sources":["webpack:///./src/styles/App.css"],"sourcesContent":["/* .textSize{\r\n    font-size: 40px\r\n} */\n"],"mappings":";AAAA;AACA;AACA;;","sourceRoot":""}
