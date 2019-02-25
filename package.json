@@ -18,7 +18,7 @@
     "dev:api": "nodemon server/api/index.js",
     "playground": "nodemon server/playground/index.js",
     "ssr:build": "cross-env NODE_ENV=production webpack --progress",
-    "ssr:server": "nodemon index.js"
+    "ssr:server": "nodemon ./server.js"
   },
   "husky": {
     "hooks": {
@@ -31,6 +31,7 @@
   "dependencies": {
     "@babel/core": "^7.2.2",
     "@babel/plugin-proposal-class-properties": "^7.3.0",
+    "@babel/plugin-proposal-decorators": "^7.3.0",
     "@babel/plugin-proposal-object-rest-spread": "^7.3.1",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/polyfill": "^7.2.5",
@@ -41,9 +42,11 @@
     "@loadable/component": "^5.6.0",
     "@loadable/server": "^5.6.0",
     "@loadable/webpack-plugin": "^5.5.0",
+    "FileReader": "^0.10.2",
     "axios": "^0.18.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.1.0",
+    "babel-plugin-transform-require-ignore": "^0.1.1",
     "bcrypt": "^3.0.4",
     "body-parser": "^1.18.3",
     "concurrently": "^4.1.0",
@@ -81,6 +84,7 @@
     "redux-thunk": "^2.3.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
+    "url-loader": "^1.1.2",
     "webpack": "^4.29.0",
     "webpack-cli": "^3.2.1",
     "webpack-dev-server": "^3.1.14"

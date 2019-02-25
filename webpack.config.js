@@ -25,9 +25,6 @@ module.exports = () => {
       filename: path.join("js", "index.js"),
       path: rootPath
     },
-    resolve: {
-      modules: [path.resolve("./src"), "node_modules"]
-    },
     module: {
       rules: [
         {
@@ -57,7 +54,7 @@ module.exports = () => {
               loader: "file-loader",
               options: {
                 limit: 8000,
-                name: "assets/images/[hash]-[name].[ext]"
+                name: "assets/images/[name].[ext]"
               }
             }
           ]
@@ -69,7 +66,7 @@ module.exports = () => {
               loader: "file-loader",
               options: {
                 limit: 8000,
-                name: "assets/pdfs/[hash]-[name].[ext]"
+                name: "assets/pdfs/[name].[ext]"
               }
             }
           ]

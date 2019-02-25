@@ -12,6 +12,8 @@ import "../../styles/Ap.scss";
 import "../../styles/App.css";
 import Button from "../../components/Button";
 import { connect } from "react-redux";
+import { payImage } from "../../assets";
+// import { get } from "lodash";
 
 addLocaleData([...localeEn, ...localeDe, ...localeEs]);
 const messages = {
@@ -21,7 +23,11 @@ const messages = {
 };
 
 class App extends React.Component {
-  state = { count: 0 };
+  state = { count: 0, image: "" };
+
+  componentDidMount() {
+    payImage.then(res => this.setState({ image: res }));
+  }
 
   increase = () => {
     this.setState(({ count }) => ({ count: count + 1 }));
@@ -37,6 +43,7 @@ class App extends React.Component {
           {<FormattedMessage {...localMessage.title} />}
           <p>{count}</p>
           <p>{name}</p>
+          <img src="https://www.w3schools.com/images/w3schools_green.jpg" style={{ width: 500, height: 500 }} />
           <Button onClick={this.increase}>
             <FormattedMessage {...localMessage.buttonName} />
           </Button>

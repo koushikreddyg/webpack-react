@@ -12,7 +12,7 @@ const app = express();
 
 app.use(express.static(path.resolve(__dirname, "..", "..", "public")));
 
-app.get("*", (req, res) => {
+app.get("/*", (req, res) => {
   const store = createStore(
     () => ({
       name: "none"
@@ -45,7 +45,7 @@ function htmlTemplate(reactDom, reduxState) {
         <html>
         <head>
             <meta charset="utf-8">
-            <title>React SSR</title>
+            <title>Document</title>
             <link rel="stylesheet" type="text/css" href="./css/index.css" />
         </head>
         

@@ -19,8 +19,6 @@ const store = createStore(
 
 const history = createMemoryHistory();
 
-console.log(store.getState());
-
 const App = () => (
   <Provider store={store}>
     <BrowserRouter history={history}>
