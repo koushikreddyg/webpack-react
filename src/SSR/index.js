@@ -5,14 +5,16 @@ require("@babel/register")({
       {
         modules: false
       }
-    ]
+    ],
+    "@babel/preset-react"
   ],
   plugins: [
     [
       "babel-plugin-transform-require-ignore",
-      { extensions: [".less", ".css", ".scss", ".png", ".pdf", "index.js"] }
+      { extensions: [".less", ".css", ".scss", ".png", ".pdf"] }
     ],
     ["@babel/transform-modules-commonjs", { loose: true }]
   ]
 });
+
 require("./server");
