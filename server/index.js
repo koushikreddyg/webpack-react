@@ -1,5 +1,13 @@
 const express = require("express");
 const path = require("path");
+const io = require("socket.io")();
+
+io.on("connection", socket => {
+  socket.on("chat-message", msg => {
+    io.to(`${msg.socketId}`).emit("chat-message", msg.message);
+  });
+});
+io.listen(2050);
 
 const assetsPath = path.join(__dirname, "..", "public");
 
