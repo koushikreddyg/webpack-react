@@ -8,6 +8,12 @@ exec("npm -v", (err, std) => {
   }
 });
 
+exec("git remote remove origin", (err) => {
+  if (err) throw err;
+  console.log("git remote url removed");
+  process.exit(1);
+});
+
 if (process.env.npm_execpath.indexOf("yarn") > -1) {
   console.error("You must not use Yarn to install dependencies:");
   process.exit(1);
