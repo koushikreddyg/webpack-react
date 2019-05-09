@@ -19,7 +19,7 @@
     "playground": "nodemon server/playground/index.js",
     "ssr:build": "cross-env NODE_ENV=production webpack --progress",
     "ssr:server": "nodemon ./src/SSR/index.js",
-    "setup": "concurrently \"npm install\" \"node ./internals/removeGitOrigin.js\""
+    "setup": "node ./internals/removeGitOrigin.js"
   },
   "husky": {
     "hooks": {
