@@ -9,7 +9,6 @@ exec("npm -v", (err, std) => {
 });
 
 exec("git remote remove origin", (err) => {
-  if (err) throw err;
   console.log("git remote url removed");
   process.exit(1);
 });
